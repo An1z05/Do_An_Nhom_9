@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch Thi Đấu | T1Express</title>
+    <link rel="stylesheet" href="styleBXH.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+          <div class="header-content">
+              <div>
+                  <div class="logo">T1Express</div>
+                  <div class="tagline">Cập nhật tin tức Esports mới nhất, nhanh chóng chất lượng</div>
+              </div>
+              <nav class="main-nav">
+                  <ul class="nav-menu">
+                      <li class="nav-item">
+                          <a href="./index.html" class="nav-link">Trang chủ</a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="./Tintuc.html" class="nav-link">Tin tức</a>
+                          <div class="dropdown">
+                              <a href="news.html#lck" class="dropdown-item">Giải LCK</a>
+                              <a href="news.html#lpl" class="dropdown-item">Giải LPL</a>
+                              <a href="news.html#worlds" class="dropdown-item">World Championship</a>
+                              <a href="news.html#msi" class="dropdown-item">MSI</a>
+                          </div>
+                      </li>
+                      <li class="nav-item">
+                          <a href="./Lichthidau.html" class="nav-link">Lịch thi đấu</a>
+                          <div class="dropdown">
+                              <a href="./LichLCK.html" class="dropdown-item">Giải LCK</a>
+                              <a href="news.html#lpl" class="dropdown-item">Giải LPL</a>
+                              <a href="news.html#worlds" class="dropdown-item">World Championship</a>
+                              <a href="news.html#msi" class="dropdown-item">MSI</a>
+                          </div>
+                      </li>
+                      <li class="nav-item">
+                          <a href="./BXH.html" class="nav-link">Bảng xếp hạng</a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="./Phantich.html" class="nav-link">Phân tích</a>
+                      </li>
+                  </ul>
+              </nav>
+          </div>
+      </div>
+  </header>
+    <section class="hero">
+        <div class="container">
+            <h1 id="standings-title"></h1>
+            <p>T1Express mang đến những thông tin mới nhất, chính xác nhất về thế giới Esports với tốc độ nhanh chóng và nội dung chất lượng</p>
+        </div>
+    </section>
+<main class="main">
+    <div class="container">
+        
+        <!-- Schedule Navigation -->
+        <div class="league-tabs">
+            <div class="league-tab active">LCK</div>
+            <div class="league-tab">LPL</div>
+            <div class="league-tab">LEC</div>
+            <div class="league-tab">LCS</div>
+          </div>
+          
+          <table class="ranking-table" id="standings-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Đội Tuyển</th>
+                <th>Thắng - Thua</th>
+                <th>Tỷ lệ thắng</th>
+                <th>+/-</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Dữ liệu sẽ được thêm bằng JavaScript -->
+            </tbody>
+          </table>
+    </div>
+</main>
+   <script>
+    // Dữ liệu các giải đấu
+// Dữ liệu các giải đấu với logo
+const leagueData = {
+  'LCK': {
+    title: 'Bảng xếp hạng LCK Mùa Xuân 2025',
+    standings: [
+      { rank: 1, team: 'GEN.G Esports', logo: '/img/GENG.jpg', wins: 7, losses: 0, winRate: '100%', diff: '+11' },
+      { rank: 2, team: 'Hanwha Life Esports', logo: '/img/HLE.jpg', wins: 6, losses: 1, winRate: '86%', diff: '+8' },
+      { rank: 3, team: 'Dplus KIA', logo: '/img/DK.png', wins: 5, losses: 1, winRate: '83%', diff: '+7' },
+      { rank: 4, team: 'Nongshim RedForce', logo: '/img/NS.jpg', wins: 4, losses: 3, winRate: '57%', diff: '-2' },
+      { rank: 5, team: 'T1', logo: '/img/T1.png', wins: 3, losses: 3, winRate: '50%', diff: '-1' },
+      { rank: 6, team: 'BNK FearX', logo: '/img/BNK.png', wins: 3, losses: 4, winRate: '43%', diff: '-1' },
+      { rank: 7, team: 'KT Rolster', logo: '/img/KT.jpg', wins: 2, losses: 5, winRate: '29%', diff: '-7' },
+      { rank: 8, team: 'OKSavingsBank Brion', logo: '/img/brion.png', wins: 1, losses: 4, winRate: '20%', diff: '-8' },
+      { rank: 9, team: 'DRX', logo: '/img/DRX.png', wins: 1, losses: 4, winRate: '20%', diff: '-8' },
+      { rank: 8, team: 'DN Freecs', logo: '/img/DNF.png', wins: 1, losses: 4, winRate: '20%', diff: '-8' },
+    ]
+  },
+  'LPL': {
+    title: 'Bảng xếp hạng LPL Mùa Xuân 2025',
+    standings: [
+      { rank: 1, team: 'JD Gaming', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/jdg-4n6o3x9q.png', wins: 8, losses: 0, winRate: '100%', diff: '+12' },
+      { rank: 2, team: 'Top Esports', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/top-esports-31xpm0w1.png', wins: 7, losses: 1, winRate: '88%', diff: '+9' },
+      { rank: 3, team: 'EDward Gaming', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/edward-gaming-6m5v3k3x.png', wins: 6, losses: 2, winRate: '75%', diff: '+7' },
+      { rank: 4, team: 'Royal Never Give Up', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/rng-9kdx3w0q.png', wins: 5, losses: 3, winRate: '63%', diff: '+3' },
+      { rank: 5, team: 'FunPlus Phoenix', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/fpx-3jdy3k0w.png', wins: 4, losses: 4, winRate: '50%', diff: '0' },
+      { rank: 6, team: 'LNG Esports', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/lng-3w7x3n1q.png', wins: 3, losses: 5, winRate: '38%', diff: '-4' },
+      { rank: 7, team: 'Weibo Gaming', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/weibo-4d7x3k6q.png', wins: 2, losses: 6, winRate: '25%', diff: '-7' },
+      { rank: 8, team: 'Oh My God', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/omg-31xpm0w1.png', wins: 1, losses: 7, winRate: '13%', diff: '-10' }
+    ]
+  },
+  'LEC': {
+    title: 'Bảng xếp hạng LEC Mùa Xuân 2025',
+    standings: [
+      { rank: 1, team: 'G2 Esports', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/g2-esports-4n6o3x9q.png', wins: 7, losses: 0, winRate: '100%', diff: '+10' },
+      { rank: 2, team: 'Fnatic', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/fnatic-6m5v3k3x.png', wins: 6, losses: 1, winRate: '86%', diff: '+8' },
+      { rank: 3, team: 'MAD Lions', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/mad-lions-9kdx3w0q.png', wins: 5, losses: 2, winRate: '71%', diff: '+5' },
+      { rank: 4, team: 'Team Vitality', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/vitality-3jdy3k0w.png', wins: 4, losses: 3, winRate: '57%', diff: '+2' },
+      { rank: 5, team: 'SK Gaming', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/sk-gaming-3w7x3n1q.png', wins: 3, losses: 4, winRate: '43%', diff: '-2' },
+      { rank: 6, team: 'Excel Esports', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/excel-4d7x3k6q.png', wins: 2, losses: 5, winRate: '29%', diff: '-5' },
+      { rank: 7, team: 'KOI', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/koi-31xpm0w1.png', wins: 1, losses: 6, winRate: '14%', diff: '-8' },
+      { rank: 8, team: 'Team Heretics', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/heretics-4n6o3x9q.png', wins: 0, losses: 7, winRate: '0%', diff: '-10' }
+    ]
+  },
+  'LCS': {
+    title: 'Bảng xếp hạng LCS Mùa Xuân 2025',
+    standings: [
+      { rank: 1, team: 'Cloud9', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/cloud9-6m5v3k3x.png', wins: 7, losses: 0, winRate: '100%', diff: '+11' },
+      { rank: 2, team: 'Team Liquid', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/team-liquid-9kdx3w0q.png', wins: 6, losses: 1, winRate: '86%', diff: '+8' },
+      { rank: 3, team: '100 Thieves', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/100-thieves-3jdy3k0w.png', wins: 5, losses: 2, winRate: '71%', diff: '+6' },
+      { rank: 4, team: 'FlyQuest', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/flyquest-3w7x3n1q.png', wins: 4, losses: 3, winRate: '57%', diff: '+2' },
+      { rank: 5, team: 'Evil Geniuses', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/evil-geniuses-4d7x3k6q.png', wins: 3, losses: 4, winRate: '43%', diff: '-1' },
+      { rank: 6, team: 'TSM', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/tsm-31xpm0w1.png', wins: 2, losses: 5, winRate: '29%', diff: '-5' },
+      { rank: 7, team: 'Dignitas', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/dignitas-4n6o3x9q.png', wins: 1, losses: 6, winRate: '14%', diff: '-8' },
+      { rank: 8, team: 'Immortals', logo: 'https://lolstatic-a.akamaihd.net/esports-assets/production/team/immortals-6m5v3k3x.png', wins: 0, losses: 7, winRate: '0%', diff: '-13' }
+    ]
+  }
+};
+
+// Hàm tạo bảng xếp hạng
+function renderStandings(league) {
+  const data = leagueData[league];
+  
+  // Cập nhật tiêu đề
+  document.getElementById('standings-title').textContent = data.title;
+  
+  // Lấy phần tử tbody
+  const tbody = document.querySelector('#standings-table tbody');
+  tbody.innerHTML = '';
+  
+  // Thêm các hàng dữ liệu
+  data.standings.forEach(team => {
+    const row = document.createElement('tr');
+    
+    row.innerHTML = `
+        <th class="rank">${team.rank}</th>
+        <td>
+          <div class="team-cell">
+            <img src="${team.logo}" alt="${team.team}" class="team-logo">
+            <span>${team.team}</span>
+          </div>
+        </td>
+        <td class="score">${team.wins} - ${team.losses}</td>
+        <td class="winrate">${team.winRate}</td>
+        <td class="diff">${team.diff}</td>
+    `;
+    
+    tbody.appendChild(row);
+  });
+}
+
+// Thêm sự kiện click cho các tab
+document.querySelectorAll('.league-tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    // Xóa class active từ tất cả các tab
+    document.querySelectorAll('.league-tab').forEach(t => t.classList.remove('active'));
+    
+    // Thêm class active vào tab được click
+    this.classList.add('active');
+    
+    // Hiển thị bảng xếp hạng tương ứng
+    const league = this.textContent.trim();
+    renderStandings(league);
+  });
+});
+
+// Khởi tạo với LCK khi trang được tải
+document.addEventListener('DOMContentLoaded', () => {
+  renderStandings('LCK');
+});
+   </script>
+   
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">T1Express</div>
+                        <p>Trang tin tức Esports hàng đầu Việt Nam, cập nhật thông tin nhanh chóng và chính xác nhất.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-discord"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Liên kết nhanh</h3>
+                        <ul>
+                            <li><a href="index.html">Trang chủ</a></li>
+                            <li><a href="news.html">Tin tức</a></li>
+                            <li><a href="schedule.html">Lịch thi đấu</a></li>
+                            <li><a href="rankings.html">Bảng xếp hạng</a></li>
+                            <li><a href="videos.html">Video Highlight</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Giải đấu</h3>
+                        <ul>
+                            <li><a href="lck.html">LCK</a></li>
+                            <li><a href="lpl.html">LPL</a></li>
+                            <li><a href="lec.html">LEC</a></li>
+                            <li><a href="worlds.html">World Championship</a></li>
+                            <li><a href="msi.html">MSI</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Về chúng tôi</h3>
+                        <ul>
+                            <li><a href="about.html">Giới thiệu</a></li>
+                            <li><a href="team.html">Đội ngũ</a></li>
+                            <li><a href="careers.html">Tuyển dụng</a></li>
+                            <li><a href="advertise.html">Quảng cáo</a></li>
+                            <li><a href="contact.html">Liên hệ</a></li>
+                        </ul>
+                    </div>
+            </div>
+                <div class="copyright">
+                    <p>© 2024 T1Express. Tất cả các quyền được bảo lưu. Licensed under Wanhe Licenses</p>
+                </div>
+        </div>
+    </footer>
+</body>
+</html>
