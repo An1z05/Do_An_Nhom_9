@@ -270,6 +270,48 @@ header {
     color: #666;
 }
 
+h2, h3 {
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #0a1428;
+    color: #c8aa6e;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f0f0f0;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #0a1428;
+}
+
 /* Sidebar */
 .sidebar-section {
     background-color: white;
